@@ -1,0 +1,103 @@
+@startuml
+''' Classes '''
+class Room {
+    type: RoomTypes
+    number: int
+    floor: int
+    description: String
+}
+
+class Image {
+    url: String
+}
+
+class User {
+    name: String
+    username: String
+    cin: String
+    password: String
+    role: Roles
+}
+
+class Reservation {
+    startDate: Date
+    endDate: Date
+    status: StatusReservation
+}
+
+class Extra {
+    type: ExtraTypes
+    price: Double
+}
+
+class Rate {
+    type: RoomTypes
+    price: Double
+    startDate: Date
+    endDate: Date
+}
+
+class Promotion {
+    type: RoomTypes
+    reduction: Double
+    startDate: Date
+    endDate: Date
+}
+
+class Payment {
+    date: Date
+    type: PaymentTypes
+    total: Double
+}
+
+''' Enums '''
+enum ReservationStatus {
+    CONFIRMED
+    CANCELED
+    PENDING
+}
+
+enum Roles {
+    ADMIN
+    CLIENT
+}
+
+enum ExtraTypes {
+    BREAKFAST
+    LUNCH
+    DINNER
+    FRUITS
+    MUSIC
+    SPA
+    MASSAGE
+    CARE
+    EXCURSION
+}
+
+enum RoomTypes {
+    SINGLE
+    DOUBLE
+    TRIPLE
+    SUITE
+}
+
+enum PaymentTypes {
+    CASH
+    ONLINE
+}
+
+''' Relations '''
+Room "1" -- "6" Image : Has >
+User "0,*" -- "0,*" Room : Reserves >
+(User, Room) "1" -- "1" Reservation : Has >
+Reservation "0,*" -- "0,*" Extra : Has >
+Reservation "1" -- "0,1" Payment : Has >
+
+''' Hidden Relations '''
+Extra -[hidden]- ExtraTypes
+Room -[hidden]l- RoomTypes
+Reservation -[hidden]r- ReservationStatus
+Payment -[hidden]- PaymentTypes
+Rate -[hidden]d- RoomTypes
+Promotion -[hidden]u- RoomTypes
+@enduml
