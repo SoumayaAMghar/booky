@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+
+actor User
+actor Manager
+
+rectangle Booky {
+    usecase "Login" as UC1
+    usecase "View available chambers" as UC3
+    usecase "View chamber details" as UC4
+    usecase "Register" as UC2
+    usecase "Reserve available chamber(s)" as UC5
+    usecase "View reservation details" as UC6
+    usecase "Cancel reservation" as UC7
+    usecase "View reservation history" as UC8
+    usecase "Pay reservation fees" as UC9
+
+    usecase "Manage chambers" as UC11
+    usecase "Manage reservations" as UC12
+    usecase "Manage users" as UC13
+    usecase "Manage tarifs" as UC14
+    usecase "Manage promotions" as UC15
+}
+
+''' User Use Cases '''
+User -- UC2
+User -- UC3
+User -- UC4
+User -- UC5
+User -- UC6
+User -- UC7
+User -- UC8
+User -- UC9
+
+''' Manager Use Cases '''
+Manager -- UC11
+Manager -- UC12
+Manager -- UC13
+Manager -- UC14
+Manager -- UC15
+
+''' Needs User account '''
+UC2 .. UC1 : <<extends>>
+UC5 .. UC1 : <<include>>
+UC6 .. UC1 : <<include>>
+UC7 .. UC1 : <<include>>
+UC8 .. UC1 : <<include>>
+UC9 .. UC1 : <<include>>
+
+''' Needs Manager account '''
+UC11 .. UC1 : <<include>>
+UC12 .. UC1 : <<include>>
+UC13 .. UC1 : <<include>>
+UC14 .. UC1 : <<include>>
+UC15 .. UC1 : <<include>>
+@enduml
