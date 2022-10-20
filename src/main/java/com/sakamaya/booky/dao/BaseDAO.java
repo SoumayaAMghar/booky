@@ -4,12 +4,8 @@ import com.sakamaya.booky.dao.interfaces.IDAO;
 import com.sakamaya.booky.model.interfaces.*;
 import com.sakamaya.booky.visitor.DeserializeVisitor;
 import com.sakamaya.booky.visitor.SerializeVisitor;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public abstract class BaseDAO<T extends ISerializable & IDeserializable> implements IDAO<T> {
     protected final Connection connection;
