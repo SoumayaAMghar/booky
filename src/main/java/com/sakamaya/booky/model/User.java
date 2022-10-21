@@ -75,8 +75,6 @@ public class User implements ISerializable, IDeserializable {
         this.role = role;
     }
 
-
-
     @Override
     public String toString() {
         return "User{" +

@@ -2,6 +2,7 @@ package com.sakamaya.booky.dao;
 
 import com.sakamaya.booky.dao.interfaces.IRoomDAO;
 import com.sakamaya.booky.model.Room;
+import com.sakamaya.booky.model.enums.RoomTypes;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class RoomDAO extends BaseDAO<Room> implements IRoomDAO {
     }
 
     @Override
-    public List<Room> findAllByType(String type) {
-        return findAll("type", type);
+    public List<Room> findAllByType(RoomTypes type) {
+        return findAll("type", type.name());
     }
 }
