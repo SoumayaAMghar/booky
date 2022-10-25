@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rooms</title>
+    <title>Chambres</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <section class="h-screen bg-cover" style="background-image: url('https://www.berjayahotel.com/sites/default/files/colombo_30.jpg')">
